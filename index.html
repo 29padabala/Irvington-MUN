@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Irvington MUN</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irvington MUN | Model United Nations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --royal-blue: #0038A8;
+            --deep-royal: #002D86;
+            --accent-blue: #E6EEFF;
+            --text-main: #1A1A1A;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: #FFFFFF;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .nav-item, .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Active Navigation Link Indicator */
+        .active-nav {
+            color: var(--royal-blue) !important;
+            font-weight: 700;
+            position: relative;
+        }
+        .active-nav::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--royal-blue);
+            border-radius: 2px;
+        }
+
+        /* Card layout interactions */
+        .officer-card {
+            border: 1px solid #E5E7EB;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .officer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 56, 168, 0.1);
+            border-color: var(--royal-blue);
+        }
+
+        .img-placeholder {
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header Nav bat fremunc logo  -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b-4 border-[#0038A8] shadow-md">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <div class="flex items-center space-x-4 cursor-pointer" onclick="showPage('home')">
+                
+                <img src="https://fremunc.wordpress.com/wp-content/uploads/2023/06/354075719_1341066043498583_3858348944398553570_n.png" 
+                     alt="FREMUNC Logo" 
+                     class="w-14 h-14 object-contain">
+                <div>
+                    <h1 class="text-2xl font-extrabold text-[#0038A8] leading-tight tracking-tighter">IRVINGTON MUN</h1>
+                    <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">Model United Nations Club</p>
+                </div>
+            </div>
+            
+            <nav class="flex items-center space-x-4 md:space-x-8 text-[13px] font-semibold uppercase tracking-wider">
+                <button onclick="showPage('home')" id="btn-home" class="nav-item active-nav hover:text-[#0038A8] transition-colors">Home</button>
+                <button onclick="showPage('about')" id="btn-about" class="nav-item hover:text-[#0038A8] transition-colors">About Us</button>
+                <button onclick="showPage('officers')" id="btn-officers" class="nav-item hover:text-[#0038A8] transition-colors">Officers</button>
+                <button onclick="showPage('fremunc')" id="btn-fremunc" class="nav-item hover:text-[#0038A8] transition-colors">FREMUNC</button>
+                <button onclick="showPage('minimun')" id="btn-minimun" class="nav-item hover:text-[#0038A8] transition-colors">Mini-MUN</button>
+                <button onclick="showPage('contact')" id="btn-contact" class="nav-item hover:text-[#0038A8] transition-colors">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- HOME PAGE -->
+        <div id="page-home" class="page-content">
+            <section class="relative bg-neutral-900 h-[600px] w-full flex items-center overflow-hidden">
+                <img src="https://snipboard.io/fxvB0r.jpg" 
+                     alt="Conference Banner" 
+                     class="absolute inset-0 w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-700">
+                
+                <div class="w-full max-w-7xl mx-auto px-6 relative z-10 text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.85)]">
+                    <div class="max-w-2xl space-y-6">
+                        <div class="inline-block border-2 border-white bg-black/30 px-4 py-1 text-xs font-bold uppercase tracking-widest">Irvington High School MUN</div>
+                        
+                        <h2 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
+                            Debate Global Issues<br>
+                            <span class="text-blue-300 whitespace-nowrap">Become Future Leaders</span>
+                        </h2>
+                        
+                        <p class="text-lg md:text-xl font-medium opacity-100 max-w-xl">Irvington High School's official MUN club, teaching the future leaders of the world to solve global problems through public speaking and diplomacy.</p>
+                        
+                        <div class="flex gap-4 pt-4 drop-shadow-none">
+                            <button onclick="showPage('about')" class="bg-white text-[#0038A8] px-8 py-4 font-bold text-sm uppercase rounded shadow-lg hover:bg-gray-100 transition-all">About Us</button>
+                            <button onclick="showPage('contact')" class="border-2 border-white bg-black/10 text-white px-8 py-4 font-bold text-sm uppercase rounded hover:bg-white/20 transition-all">Questions?</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Why Join? -->
+            <section class="max-w-4xl mx-auto px-6 py-20">
+                <div class="space-y-4 text-center md:text-left">
+                    <div class="w-12 h-1 bg-[#0038A8] mx-auto md:mx-0"></div>
+                    <h3 class="text-3xl font-bold uppercase tracking-tight text-[#0038A8]">Why Join?</h3>
+                    <p class="text-gray-600 text-base leading-relaxed pt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT US PAGE -->
+        <div id="page-about" class="page-content hidden">
+            <section class="max-w-7xl mx-auto px-6 py-20 space-y-20">
+                <!-- Overview Row -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-extrabold text-[#0038A8] uppercase tracking-tight">Why Model UN?</h3>
+                        <p class="text-gray-600 leading-relaxed">Model United Nations is a globally recognized activity ..........</p>
+                        <p class="text-gray-600 leading-relaxed">At Irvington, we don't just participate; we compete at the highest level, attending conferences at prestigious universities across California.</p>
+                    </div>
+                    <div class="w-full aspect-square img-placeholder rounded-lg shadow-inner text-center p-8"> replaceeeee latr</div>
+                </div>
+
+                <!-- Best Delegations Awards Showcase Grid (5 items) -->
+                <div class="space-y-12">
+                    <div class="text-center md:text-left border-b border-gray-200 pb-4">
+                        <h3 class="text-3xl font-extrabold text-[#0038A8] uppercase tracking-tight">Irington Best Delegation's</h3>
+                        <p class="text-gray-500 text-sm mt-1">Highlights of our team's best perfomances.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Award 1 -->
+                        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-full aspect-video img-placeholder">Conference Photo 1</div>
+                            <div class="p-6 space-y-2">
+                                <span class="bg-blue-100 text-[#0038A8] text-[10px] font-bold uppercase px-2.5 py-1 rounded">Best Large Delegation</span>
+                                <h4 class="font-extrabold text-lg pt-1 text-[#0038A8]">Comp Name</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id tellus tristique, dictum felis non, scelerisque leo. Integer ut accumsan massa.</p>
+                            </div>
+                        </div>
+
+                        <!-- Award 2 -->
+                        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-full aspect-video img-placeholder">Conference Photo 2</div>
+                            <div class="p-6 space-y-2">
+                                <span class="bg-blue-100 text-[#0038A8] text-[10px] font-bold uppercase px-2.5 py-1 rounded">Best Large Delegation</span>
+                                <h4 class="font-extrabold text-lg pt-1 text-[#0038A8]">Comp Name</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum vestibulum lorem nec porta. In scelerisque lacinia magna sed congue.</p>
+                            </div>
+                        </div>
+
+                        <!-- Award 3 -->
+                        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-full aspect-video img-placeholder">Conference Photo 3</div>
+                            <div class="p-6 space-y-2">
+                                <span class="bg-blue-100 text-[#0038A8] text-[10px] font-bold uppercase px-2.5 py-1 rounded">Best Large Delegation</span>
+                                <h4 class="font-extrabold text-lg pt-1 text-[#0038A8]">Comp Name</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed finibus nisl eget nisl pretium tristique. Curabitur vel tellus congue leo tincidunt tempor.</p>
+                            </div>
+                        </div>
+
+                        <!-- Award 4 -->
+                        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-full aspect-video img-placeholder">Conference Photo 4</div>
+                            <div class="p-6 space-y-2">
+                                <span class="bg-blue-100 text-[#0038A8] text-[10px] font-bold uppercase px-2.5 py-1 rounded">Best Large Delegation</span>
+                                <h4 class="font-extrabold text-lg pt-1 text-[#0038A8]">Comp Name</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque convallis, risus id posuere maximus, ex ligula feugiat sapien, dictum pretium sem.</p>
+                            </div>
+                        </div>
+
+                        <!-- Award 5 -->
+                        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-full aspect-video img-placeholder">Conference Photo 5</div>
+                            <div class="p-6 space-y-2">
+                                <span class="bg-blue-100 text-[#0038A8] text-[10px] font-bold uppercase px-2.5 py-1 rounded">Best Large Delegation</span>
+                                <h4 class="font-extrabold text-lg pt-1 text-[#0038A8]">Comp Name</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat nisl in metus finibus vestibulum. Duis facilisis dictum sapien vitae volutpat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- OFFICERS PAGE -->
+        <div id="page-officers" class="page-content hidden">
+            <section class="max-w-7xl mx-auto px-6 py-20">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-4xl font-extrabold text-[#0038A8] uppercase tracking-tighter">The 2026 Officer Team</h2>
+                    <div class="w-24 h-1 bg-[#0038A8] mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">President</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">President</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">Vice President</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">Vice Captain of GA</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">Vice Captain of Crisis</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">External Projects Director</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">Junior Officer</p>
+                    </div>
+                    <div class="officer-card p-6 bg-white rounded-lg text-center">
+                        <div class="w-full aspect-square img-placeholder rounded mb-4">Portrait</div>
+                        <h4 class="font-bold text-lg">Officer Name</h4>
+                        <p class="text-[#0038A8] text-xs font-bold uppercase mt-1">Junior Officer</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FREMUNC PAGE -->
+        <div id="page-fremunc" class="page-content hidden">
+            <section class="max-w-7xl mx-auto px-6 py-20 space-y-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-extrabold text-[#0038A8] uppercase tracking-tight">FREMUNC</h2>
+                        <p class="text-gray-600 leading-relaxed">FREMUNC is Irvington's very own conference...............</p>
+                    </div>
+                    <div class="w-full aspect-video img-placeholder rounded-lg shadow-md">Main FREMUNC Img</div>
+                </div>
+
+                <!-- Image Collage Area -->
+                <div class="pt-8">
+                    <h3 class="text-2xl font-bold uppercase text-gray-800 mb-6 text-center md:text-left">Gallery<h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic1</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic2</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic3</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic4</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic 5</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic 6</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic7</div>
+                        <div class="aspect-square img-placeholder rounded shadow-sm">pic8</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MINI-MUN PAGE -->
+        <div id="page-minimun" class="page-content hidden">
+            <section class="max-w-7xl mx-auto px-6 py-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-extrabold text-blue-500 uppercase tracking-tight">Mini-MUN</h2>
+                        <p class="text-gray-600 leading-relaxed">Our Middle School Outreach training program designed to mentor future generations. </p>
+                    </div>
+                    <div class="w-full aspect-video img-placeholder rounded-lg shadow-md">Mini-MUN main img</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="page-contact" class="page-content hidden">
+            <section class="max-w-4xl mx-auto px-6 py-20">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div class="space-y-8">
+                        <h2 class="text-4xl font-extrabold text-[#0038A8] uppercase tracking-tighter">Get in Touch</h2>
+                        <p class="text-gray-600">Have any questions? Reach out to our secretariat below.</p>
+                        <div class="space-y-5">
+                            <div>
+                                <h4 class="font-bold text-xs uppercase text-gray-400 mb-1">Address</h4>
+                                <a href="https://maps.google.com/?q=41800+Blacow+Rd,+Fremont,+CA+94538" 
+                                   target="_blank" 
+                                   class="group block max-w-sm">
+                                    <p class="font-semibold text-gray-800 group-hover:text-[#0038A8] transition-colors">
+                                        Irvington High School<br>
+                                        41800 Blacow Rd, Fremont, CA 94538
+                                    </p>
+                                    <span class="text-[10px] text-blue-500 font-bold uppercase tracking-wider group-hover:underline block mt-1">Open in Google Maps ↗</span>
+                                </a>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase text-gray-400 mb-1">Email</h4>
+                                <p class="font-semibold text-[#0038A8]">irvingtonmun@gmail.com</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs uppercase text-gray-400 mb-1">Instagram</h4>
+                                <a href="https://www.instagram.com/irvingtonmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                                   target="_blank" 
+                                   class="font-semibold text-blue-500 hover:underline block">@irvingtonmun</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="space-y-4 bg-gray-50 p-8 rounded-lg border border-gray-200 shadow-sm" onsubmit="event.preventDefault(); alert('Message Sent!');">
+                        <div>
+                            <label class="text-[10px] font-bold uppercase text-gray-500 mb-1 block">Full Name</label>
+                            <input type="text" class="w-full border border-gray-300 p-3 text-sm rounded focus:border-[#0038A8] outline-none" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold uppercase text-gray-500 mb-1 block">Email Address</label>
+                            <input type="email" class="w-full border border-gray-300 p-3 text-sm rounded focus:border-[#0038A8] outline-none" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold uppercase text-gray-500 mb-1 block">Message</label>
+                            <textarea rows="4" class="w-full border border-gray-300 p-3 text-sm rounded focus:border-[#0038A8] outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#0038A8] text-white py-4 font-bold uppercase text-xs tracking-widest hover:bg-[#002D86] transition-colors rounded">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-100 py-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em] gap-6">
+            <p>© 2026 Irvington High School MUN</p>
+            <div class="flex items-center gap-8">
+                <span>Fremont, CA</span>
+                <a href="https://www.instagram.com/irvingtonmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                   target="_blank" 
+                   class="flex items-center gap-2 text-gray-500 hover:text-[#0038A8] transition-colors normal-case tracking-normal">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 01-.748-1.15 3.098 3.098 0 01-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="font-bold text-[11px] uppercase tracking-[0.2em]">@irvingtonmun</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active-nav'));
+            
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            document.getElementById('btn-' + pageId).classList.add('active-nav');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
